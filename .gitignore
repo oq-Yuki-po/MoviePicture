@@ -12,4 +12,5 @@
 /captures
 .externalNativeBuild
 /app/src/main/assets/image/*
+!/app/src/main/assets/image/sample*
 !.gitkeep
