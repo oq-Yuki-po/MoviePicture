@@ -79,7 +79,8 @@ public class Fragment extends ArFragment {
         }
 
         try {
-            String[] image_list = asset.list("image");
+            String image_folder = "image";
+            String[] image_list = asset.list(image_folder);
 
             if (image_list == null) {
                 Log.e(TAG, "image list is null");
@@ -89,7 +90,7 @@ public class Fragment extends ArFragment {
             // Create ImageDataBase
             augmentedImageDatabase = new AugmentedImageDatabase(session);
             for (String s : image_list) {
-                augmentedImageDatabase.addImage(s, Objects.requireNonNull(loadImageBitmap(asset, s)));
+                augmentedImageDatabase.addImage(s, Objects.requireNonNull(loadImageBitmap(asset, image_folder + "/" + s)));
             }
             config.setAugmentedImageDatabase(augmentedImageDatabase);
             return true;
